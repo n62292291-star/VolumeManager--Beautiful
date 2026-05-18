@@ -13,7 +13,7 @@ Requires Android 13.
 
 ## Download
 
-Latest development version can be downloaded from [action artifacts](https://github.com/yume-chan/VolumeManager/actions).
+Latest development version can be downloaded from [action artifacts](https://github.com/yume-chan/VolumeManager/actions/workflows/build.yml?query=branch%3Amain).
 
 Some hand-picked versions can also be downloaded from [releases](https://github.com/yume-chan/VolumeManager/releases).
 
