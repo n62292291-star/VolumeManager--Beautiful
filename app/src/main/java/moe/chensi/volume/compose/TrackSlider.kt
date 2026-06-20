@@ -61,8 +61,22 @@ fun TrackSlider(
                     var startX = 0f
 
                     detectHorizontalDragGestures(onDragStart = { offset ->
-                        startValue = latestValue
-                        startX = offset.x
+
+    val percentage =
+        (offset.x / size.width.toFloat())
+            .coerceIn(0f, 1f)
+
+    val totalRange =
+        valueRange.endInclusive - valueRange.start
+
+    onValueChange(
+        valueRange.start +
+                percentage * totalRange
+    )
+
+    startValue = latestValue
+    startX = offset.x
+}
                     }) { change, _ ->
                         val dragAmount = change.position.x - startX
                         val changedPercentage = dragAmount / size.width.toFloat()
