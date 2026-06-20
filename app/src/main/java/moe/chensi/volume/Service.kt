@@ -79,12 +79,16 @@ class Service : AccessibilityService() {
                 Log.i(TAG, "animate out")
                 animateAlpha(layoutParams.alpha, 0f, ANIMATION_DURATION) {
                     if (!viewVisible) {
-                        Log.i(TAG, "remove view")
-                        view!!.background = null
-                        lifecycle?.currentState = Lifecycle.State.DESTROYED
-                        windowManager.removeView(view)
-                        view = null
-                    }
+    Log.i(TAG, "remove view")
+    view?.background = null
+    lifecycle?.currentState = Lifecycle.State.DESTROYED
+
+    view?.let {
+        windowManager.removeView(it)
+    }
+
+    view = null
+}
                 }
                 viewVisible = false
             }
