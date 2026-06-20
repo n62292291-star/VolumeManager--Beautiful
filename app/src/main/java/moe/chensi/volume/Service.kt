@@ -189,7 +189,7 @@ class Service : AccessibilityService() {
             override fun Content() {
                 return VolumeManagerTheme {
                     Surface(
-                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.75f)
+                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.75f),
                         contentColor = MaterialTheme.colorScheme.onSurface,
                         shape = RoundedCornerShape(40f)
                     ) {
