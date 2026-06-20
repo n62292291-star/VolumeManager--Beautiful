@@ -57,9 +57,9 @@ class Service : AccessibilityService() {
 
         private const val TAG = "VolumeManager.Service"
 
-        private const val ANIMATION_DURATION = 300L
+        private const val ANIMATION_DURATION = 180L
 
-        private const val IDLE_TIMEOUT = 3000L
+        private const val IDLE_TIMEOUT = 1800L
         private const val AUTO_REPEAT_DELAY = 100L
         private const val AUTO_REPEAT_INITIAL_DELAY = 500L
     }
@@ -189,7 +189,7 @@ class Service : AccessibilityService() {
             override fun Content() {
                 return VolumeManagerTheme {
                     Surface(
-                        color = Color(1f, 1f, 1f, 0.3f),
+                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.75f)
                         contentColor = MaterialTheme.colorScheme.onSurface,
                         shape = RoundedCornerShape(40f)
                     ) {
