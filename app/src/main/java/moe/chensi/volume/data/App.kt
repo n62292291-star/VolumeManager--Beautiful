@@ -141,11 +141,18 @@ data class App(
         if (!config.hasPlayer) {
             return
         }
-
-        Log.d(
-            "AppVolManager",
-            "add player $packageName ${config.clientPid} ${config.playerTypeName} ${config.playerStateName}"
-        )
+Log.d(
+    "VolumeDebug",
+    """
+    package=$packageName
+    pid=${config.clientPid}
+    playerType=${config.playerType}
+    playerTypeName=${config.playerTypeName}
+    playerState=${config.playerState}
+    playerStateName=${config.playerStateName}
+    isPlaying=${config.isPlaying}
+    """.trimIndent()
+)
 
         // Apply volume to potentially new player
         if (!config.setVolume(_volume)) {
