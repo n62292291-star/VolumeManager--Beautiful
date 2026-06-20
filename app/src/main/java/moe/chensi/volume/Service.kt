@@ -266,7 +266,9 @@ class Service : AccessibilityService() {
         animator.addUpdateListener { animation ->
             if (view != null) {
                 layoutParams.alpha = animation.animatedValue as Float
-                windowManager.updateViewLayout(view, layoutParams)
+                view?.let {
+    windowManager.updateViewLayout(it, layoutParams)
+                }
             }
         }
 
@@ -281,8 +283,9 @@ class Service : AccessibilityService() {
                 }
 
                 layoutParams.alpha = to
-                windowManager.updateViewLayout(view, layoutParams)
-
+                view?.let {
+    windowManager.updateViewLayout(it, layoutParams)
+                }
                 onEnd?.invoke()
             }
 
