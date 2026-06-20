@@ -194,7 +194,7 @@ class MainActivity : ComponentActivity() {
             VolumeManagerTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(), topBar = {
-                        TopAppBar(title = { Text("Volume Manager") }, actions = {
+                        TopAppBar(title = { Text("Volume Mixer") }, actions = {
                             if (manager.shizukuStatus == Manager.ShizukuStatus.Connected) {
                                 ToggleButton(
                                     checked = showAll,
