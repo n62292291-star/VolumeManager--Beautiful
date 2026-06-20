@@ -59,7 +59,7 @@ class Service : AccessibilityService() {
 
         private const val ANIMATION_DURATION = 300L
 
-        private const val IDLE_TIMEOUT = 5000L
+        private const val IDLE_TIMEOUT = 2000L
         private const val AUTO_REPEAT_DELAY = 100L
         private const val AUTO_REPEAT_INITIAL_DELAY = 500L
     }
@@ -225,7 +225,8 @@ class Service : AccessibilityService() {
             WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
             PixelFormat.TRANSLUCENT // Make the background translucent
         ).apply {
-            gravity = Gravity.CENTER // Center the view
+            gravity = Gravity.ENDorGravity.CENTER_VERTICAL
+                      x=30
         }
     }
 
