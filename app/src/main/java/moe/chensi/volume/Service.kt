@@ -59,7 +59,7 @@ class Service : AccessibilityService() {
 
         private const val ANIMATION_DURATION = 300L
 
-        private const val IDLE_TIMEOUT = 2000L
+        private const val IDLE_TIMEOUT = 3000L
         private const val AUTO_REPEAT_DELAY = 100L
         private const val AUTO_REPEAT_INITIAL_DELAY = 500L
     }
@@ -226,7 +226,7 @@ class Service : AccessibilityService() {
             PixelFormat.TRANSLUCENT // Make the background translucent
         ).apply {
             gravity = Gravity.ENDorGravity.CENTER_VERTICAL
-                      x=30
+                      x=15
         }
     }
 
