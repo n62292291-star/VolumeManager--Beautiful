@@ -225,8 +225,8 @@ class Service : AccessibilityService() {
             WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
             PixelFormat.TRANSLUCENT // Make the background translucent
         ).apply {
-            gravity = Gravity.ENDorGravity.CENTER_VERTICAL
-                      x=15
+            gravity = Gravity.START or Gravity.CENTER_VERTICAL
+x = 15
         }
     }
 
