@@ -4,11 +4,6 @@ on:
       - main
     paths-ignore:
       - README.md
-  pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - README.md
   workflow_dispatch:
 
 jobs:
@@ -18,8 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
       - name: Make gradlew executable
         run: chmod +x gradlew
+
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
@@ -30,9 +27,34 @@ jobs:
       - name: Build
         run: ./gradlew assembleRelease
 
-      
+      - name: Sign APK
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > keystore.jks
 
-      - run: cp app/build/outputs/apk/release/app-release-unsigned.apk volume-manager.apk
+          BUILD_TOOLS="$ANDROID_HOME/build-tools/34.0.0"
+
+          "$BUILD_TOOLS/zipalign" \
+            -f -v 4 \
+            app/build/outputs/apk/release/app-release-unsigned.apk \
+            app/build/outputs/apk/release/app-release-aligned.apk
+
+          "$BUILD_TOOLS/apksigner" sign \
+            --ks keystore.jks \
+            --ks-pass env:KEYSTORE_PASSWORD \
+            --ks-key-alias volume-manager \
+            --key-pass env:KEY_PASSWORD \
+            --out volume-manager.apk \
+            app/build/outputs/apk/release/app-release-aligned.apk
+
+          "$BUILD_TOOLS/apksigner" verify \
+            --verbose \
+            volume-manager.apk
+
+          rm -f keystore.jks
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
