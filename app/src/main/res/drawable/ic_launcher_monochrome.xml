@@ -1,0 +1,61 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 主音量滑杆 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M48,20
+            C45.8,20 44,21.8 44,24
+            L44,84
+            C44,86.2 45.8,88 48,88
+            C50.2,88 52,86.2 52,84
+            L52,24
+            C52,21.8 50.2,20 48,20
+            Z" />
+
+    <!-- 滑块 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M36,38
+            C36,34.7 38.7,32 42,32
+            L54,32
+            C57.3,32 60,34.7 60,38
+            L60,48
+            C60,51.3 57.3,54 54,54
+            L42,54
+            C38.7,54 36,51.3 36,48
+            Z" />
+
+    <!-- 右侧第二根滑杆 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M68,30
+            C65.8,30 64,31.8 64,34
+            L64,74
+            C64,76.2 65.8,78 68,78
+            C70.2,78 72,76.2 72,74
+            L72,34
+            C72,31.8 70.2,30 68,30
+            Z" />
+
+    <!-- 第二个滑块 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M58,56
+            C58,52.7 60.7,50 64,50
+            L72,50
+            C75.3,50 78,52.7 78,56
+            L78,64
+            C78,67.3 75.3,70 72,70
+            L64,70
+            C60.7,70 58,67.3 58,64
+            Z" />
+
+</vector>
